@@ -1,4 +1,5 @@
 # ✦ lambfreak · frontend
+## Encontrarás el backend en [github.com/sheeplettuce/lambfreak-solana-blockchain](https://github.com/sheeplettuce/lambfreak-solana-blockchain)
 
 ### Interfaz web para referencias bíblicas on-chain
 
