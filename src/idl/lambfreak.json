@@ -1,0 +1,72 @@
+{
+  "address": "4BeDBHgAHvdMTKduhJQ1jZKVx6qnSD2qi1uQgznBX3tX",
+  "metadata": {
+    "name": "lambfreak",
+    "version": "0.1.0",
+    "spec": "0.1.0"
+  },
+  "instructions": [
+    {
+      "name": "crearReferencia",
+      "discriminator": [0, 0, 0, 0, 0, 0, 0, 0],
+      "accounts": [
+        { "name": "referencia", "writable": true, "pda": { "seeds": [] } },
+        { "name": "autor", "writable": true, "signer": true },
+        { "name": "systemProgram", "address": "11111111111111111111111111111111" }
+      ],
+      "args": [
+        { "name": "libro", "type": "string" },
+        { "name": "capitulo", "type": "u16" },
+        { "name": "versiculo", "type": "u16" },
+        { "name": "nota", "type": "string" }
+      ]
+    },
+    {
+      "name": "actualizarNota",
+      "discriminator": [0, 0, 0, 0, 0, 0, 0, 1],
+      "accounts": [
+        { "name": "referencia", "writable": true },
+        { "name": "autor", "signer": true }
+      ],
+      "args": [
+        { "name": "nuevaNota", "type": "string" }
+      ]
+    },
+    {
+      "name": "eliminarReferencia",
+      "discriminator": [0, 0, 0, 0, 0, 0, 0, 2],
+      "accounts": [
+        { "name": "referencia", "writable": true },
+        { "name": "autor", "writable": true, "signer": true }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Referencia",
+      "discriminator": [0, 0, 0, 0, 0, 0, 0, 3]
+    }
+  ],
+  "types": [
+    {
+      "name": "Referencia",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          { "name": "autor", "type": "pubkey" },
+          { "name": "libro", "type": "string" },
+          { "name": "capitulo", "type": "u16" },
+          { "name": "versiculo", "type": "u16" },
+          { "name": "nota", "type": "string" },
+          { "name": "bump", "type": "u8" }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    { "code": 6000, "name": "LibroMuyLargo", "msg": "Libro demasiado largo" },
+    { "code": 6001, "name": "LibroInvalido", "msg": "Libro invalido" },
+    { "code": 6002, "name": "NotaMuyLarga", "msg": "Nota demasiado larga" }
+  ]
+}

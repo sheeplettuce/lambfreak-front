@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ✦ lambfreak · frontend
 
-## Getting Started
+### Interfaz web para referencias bíblicas on-chain
 
-First, run the development server:
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![Anchor](https://img.shields.io/badge/Anchor-0.30-FF6B35?style=for-the-badge)](https://www.anchor-lang.com)
+[![Solana](https://img.shields.io/badge/Solana-Devnet-9945FF?style=for-the-badge&logo=solana&logoColor=white)](https://explorer.solana.com/?cluster=devnet)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+
+> Frontend en Next.js que se conecta al programa Anchor [`lambfreak`](../lambfreak-program) en Solana Devnet.  
+> Permite conectar tu wallet, guardar referencias bíblicas on-chain y consultarlas en tiempo real.
+
+---
+
+## Requisitos
+
+- Node.js 18+
+- Wallet de Solana (Phantom o Solflare) configurada en **Devnet**
+- SOL de prueba — consigue en [faucet.solana.com](https://faucet.solana.com)
+
+---
+
+## Correr en local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Stack
 
-## Learn More
+| Tecnología | Uso |
+|---|---|
+| Next.js 16 (App Router) | Framework frontend |
+| `@coral-xyz/anchor` | Cliente TypeScript para el programa Anchor |
+| `@solana/wallet-adapter-react` | Conexión con wallets (Phantom, Solflare) |
+| `@solana/web3.js` | Comunicación con la red Solana |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Programa on-chain
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Este frontend interactúa con el programa Anchor desplegado en Devnet:
 
-## Deploy on Vercel
+```
+Program ID: 4BeDBHgAHvdMTKduhJQ1jZKVx6qnSD2qi1uQgznBX3tX
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+El IDL del programa vive en `src/idl/lambfreak.json`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Configurar wallet en Devnet
+
+1. Abre Phantom → Configuración → Red → **Devnet**
+2. Consigue SOL de prueba en [faucet.solana.com](https://faucet.solana.com)
+3. Conecta tu wallet en la app y empieza a guardar referencias
+
+---
+
+también me desvelé con este, no solo con el back, pero bueno, aguante la [Solana Developer Certification](https://waylearn.gitbook.io/solana-developer-certification) · WayLearn
+
+nada nos separará del amor de Cristo.

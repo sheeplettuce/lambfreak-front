@@ -1,0 +1,329 @@
+/* ── Variables ─────────────────────────────────────── */
+:root {
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --surface2: #181818;
+  --border: #222222;
+  --border-hover: #333333;
+  --text: #e8e4dc;
+  --text-muted: #5a5650;
+  --text-dim: #8a8480;
+  --accent: #c9a96e;
+  --accent-dim: #6b5535;
+  --danger: #8b3a3a;
+  --danger-text: #e07070;
+  --radius: 4px;
+  --font-serif: "Crimson Pro", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* ── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-weight: 300;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Layout ────────────────────────────────────────── */
+.main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  padding: 40px 0 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ── Header ────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+/* Wallet button override */
+.wallet-adapter-button {
+  background: transparent !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-dim) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.04em !important;
+  padding: 8px 16px !important;
+  border-radius: var(--radius) !important;
+  transition: border-color 0.2s, color 0.2s !important;
+  height: auto !important;
+}
+.wallet-adapter-button:hover {
+  border-color: var(--accent-dim) !important;
+  color: var(--accent) !important;
+  background: transparent !important;
+}
+.wallet-adapter-button-trigger {
+  background: transparent !important;
+}
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero {
+  padding: 80px 0 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* ── Form card ─────────────────────────────────────── */
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-title {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-dim);
+  letter-spacing: 0.02em;
+  font-style: italic;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* ── Inputs ────────────────────────────────────────── */
+.input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 10px 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.input::placeholder { color: var(--text-muted); }
+.input:focus { border-color: var(--accent-dim); }
+
+.input-sm {
+  width: 80px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 90px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ── Form footer ───────────────────────────────────── */
+.form-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.char-count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-right: auto;
+}
+
+.error-msg {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--danger-text);
+}
+
+/* ── Buttons ───────────────────────────────────────── */
+.btn {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius);
+  color: var(--accent);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  padding: 8px 20px;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.btn:hover:not(:disabled) {
+  background: #7a6040;
+  border-color: var(--accent);
+}
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--border-hover);
+  color: var(--text-dim);
+}
+.btn-ghost:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-danger:hover:not(:disabled) {
+  border-color: var(--danger) !important;
+  color: var(--danger-text) !important;
+}
+
+/* ── Lista ─────────────────────────────────────────── */
+.lista-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lista-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.empty-msg {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.95rem;
+  padding: 20px 0;
+}
+
+.lista-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Card referencia ───────────────────────────────── */
+.ref-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  transition: border-color 0.2s;
+}
+.ref-card:hover { border-color: var(--border-hover); }
+
+.ref-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.ref-titulo {
+  font-size: 1.05rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.ref-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.ref-nota {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+
+.edit-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* ── Footer ────────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 20px 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+/* ── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
